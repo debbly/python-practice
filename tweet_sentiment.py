@@ -15,8 +15,6 @@ def main():
     sent_file = open(sys.argv[1])
     tweet_file = open(sys.argv[2])
     hw()
-    lines(sent_file)
-    lines(tweet_file)
     sentiment(sent_file, tweet_file)
 
 def sentiment(afile, tweets):
@@ -25,11 +23,13 @@ def sentiment(afile, tweets):
     for line in afinnfile:
         term, score = line.split("\t")
         scores[term] = int(score)
+        print(score)
     outputfile = tweets
     sentimentMap = {}    
     for l in outputfile:
         count = 0
         eLine = json.loads(l)
+        print eLine
 	for word in eLine.text:
             sentimentMap[count] += scores[word]
         count += 1
