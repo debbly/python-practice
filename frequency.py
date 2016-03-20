@@ -1,6 +1,10 @@
 import json
 import sys
 
+def print(dictionary):
+    for key in dictionary:
+        print("%s %s", key, dictionary[key])
+
 def main():
     input_file = open(sys.argv[1])
     total = 0
